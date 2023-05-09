@@ -74,6 +74,29 @@ def delete_planet(planet_id):
     db.session.commit()
     return make_response(f"Planet #{planet.id} successfully deleted")
 
+# Get
+# @planet_bp.route("/<planet_id>/moons", methods=["GET"])
+# def get_all_planets():
+#     query_params = request.args.get("name")
+#     if query_params:
+#         planets = Planet.query.filter_by(title=query_params)
+#     else:
+#         planets = Planet.query.all()
+#     return jsonify([planet.to_dict() for planet in planets])
+
+# Post a record
+# planet_bp = Blueprint("planet_blue_print", __name__, url_prefix="/planets")
+# @planet_bp.route("/<planet_id>/moons", methods=["POST"])
+# def create_planets():
+#     try:
+#         request_body = request.get_json()
+#         new_planet = Planet.from_dict(request_body)
+#         db.session.add(new_planet)
+#         db.session.commit()
+#         return make_response(jsonify(f"Planet {new_planet.name} successfully created"), 201)
+#     except(KeyError):
+#         return make_response(jsonify("Something is wrong!"), 400)
+
 # Helper function
 def validate_id(cls, id):
     try:

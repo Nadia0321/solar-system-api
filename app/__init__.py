@@ -18,9 +18,10 @@ def create_app(test_config=None):
             "SQLALCHEMY_DATABASE_URI")
     else:
         app.config["TESTING"] = True
+        # app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
+        #     "SQLALCHEMY_TEST_DATABASE_URI")
         app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get(
-            "SQLALCHEMY_TEST_DATABASE_URI")
-        
+            "RENDER_DATABASE_URL")
     # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://postgres:postgres@localhost:5432/solar_system_development'
 

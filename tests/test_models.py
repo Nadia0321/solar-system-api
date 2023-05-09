@@ -82,6 +82,9 @@ def test_validate_model(two_planets):
     assert result_planet.description == "King of the Roman gods, aka Zeus."
 
 def test_validate_model_missing_record(two_planets):
+    # Act & Assert
+    # Calling `validate_model` without being invoked by a route will
+    # cause an `HTTPException` when an `abort` statement is reached 
     with pytest.raises(HTTPException):
         result_book = validate_id(Planet, "3")
     

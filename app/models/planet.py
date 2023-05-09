@@ -5,7 +5,7 @@ class Planet(db.Model):
     name = db.Column(db.String)
     description = db.Column(db.String)
     number_of_moons = db.Column(db.Integer)
-
+    # moons = db.relationship("Moon", back_populates="planet")
 
     def to_dict(planet):
         return {
@@ -21,3 +21,4 @@ class Planet(db.Model):
             description = data_dict["description"],
             number_of_moons = data_dict["number_of_moons"]
         )
+  
